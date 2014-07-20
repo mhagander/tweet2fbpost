@@ -1,0 +1,28 @@
+To make this thing work, you need a tweet2fbpost.ini file
+that contains something along the line of:
+
+
+[twitter]
+user = <something>
+consumer=<from twitter>
+consumersecret=<from twitter>
+token=<from twitter>
+secret=<from twitter>
+
+[facebook]
+pageid=1231231231231
+pagetoken=CAKLJsdfjksdhfDFJODHFKJH4324234
+
+Note that you need to register yourself with the twitter developer
+console, and get the secrets and tokens from there.
+
+You also need to set up to be able to post to facebook:
+
+#1. Create an app as a facebook developer, so you can get the secret
+#2. Go to https://developers.facebook.com/tools/explorer/, and get an access token with
+    manage_pages and publish_actions permissions (extended permissions). This will grant
+    access to post on your personal wall as well - don't worry, we're going to throw
+    that token away in a minute.
+#3. Using the explorer, make a GET request for /me/accuonts
+#4. Locate the page we should post to in the resulting JSON. Record the id and the
+    access token (page specific!) inthe INI file per above.
