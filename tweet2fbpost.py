@@ -98,6 +98,6 @@ if __name__=="__main__":
 				newmax = t['id']
 
 		cfg.set('twitter', 'lasttweet', newmax)
-		with open('tweetmailer.ini', 'w') as f:
+		with open('tweet2fbpost.ini', 'w') as f:
 			cfg.write(f)
 
