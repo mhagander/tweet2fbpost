@@ -89,7 +89,11 @@ if __name__=="__main__":
 			u = urllib.urlopen('https://graph.facebook.com/%s/feed' % facebook_page,
 							   urllib.urlencode({'message': txt, 'access_token': facebook_token}),
 							   )
-			u.read()
+			if u.getcode() != 200:
+				print "Failed to post to fb, code: %s" % u.getcode()
+				print u.read()
+			else:
+				u.read()
 			u.close()
 			if verbose:
 				print "Sent '%s'" % txt
